@@ -84,6 +84,12 @@ class Silktidecookie extends Module
         return $controller->run();
     }
 
+    public function hookDisplayHeader($params)
+    {
+        $controller = $this->getHookController('displayHeader');
+        return $controller->run($params);
+    }
+
     /**
     * Add the CSS & JavaScript files you want to be loaded in the BO.
     */
