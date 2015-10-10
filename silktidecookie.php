@@ -41,7 +41,7 @@ class Silktidecookie extends Module
         // Call parent and register hooks
         if (!parent::install() ||
             !$this->registerHook('displayHeader') ||
-            !$this->registerHook('backOfficeHeader') ||
+            !$this->registerHook('displayBackOfficeHeader') ||
             !$this->registerHook('displayFooter') ||
             !$this->registerHook('displayTop')) {
             return false;
@@ -90,33 +90,9 @@ class Silktidecookie extends Module
         return $controller->run($params);
     }
 
-    /**
-    * Add the CSS & JavaScript files you want to be loaded in the BO.
-    */
-    public function hookBackOfficeHeader()
+    public function hookDisplayBackOfficeHeader($params)
     {
-        if (Tools::getValue('module_name') == $this->name) {
-            $this->context->controller->addJS($this->_path.'views/js/back.js');
-            $this->context->controller->addCSS($this->_path.'views/css/back.css');
-        }
-    }
-
-    /**
-     * Add the CSS & JavaScript files you want to be added on the FO.
-     */
-    public function hookHeader()
-    {
-        $this->context->controller->addJS($this->_path.'/views/js/front.js');
-        $this->context->controller->addCSS($this->_path.'/views/css/front.css');
-    }
-
-    public function hookDisplayFooter()
-    {
-        /* Place your code here. */
-    }
-
-    public function hookDisplayTop()
-    {
-        /* Place your code here. */
+        $controller = $this->getHookController('displayBackOfficeHeader');
+        return $controller->run($params);
     }
 }
