@@ -4,13 +4,13 @@ if (!defined('_PS_VERSION_')) {
     exit;
 }
 
-class Eucookiecat extends Module
+class Silktidecookie extends Module
 {
     protected $config_form = false;
 
     public function __construct()
     {
-        $this->name = 'eucookiecat';
+        $this->name = 'silktidecookie';
         $this->tab = 'front_office_features';
         $this->version = '0.1.0';
         $this->author = 'Vagios Vlachos';
@@ -23,10 +23,10 @@ class Eucookiecat extends Module
 
         parent::__construct();
 
-        $this->displayName = $this->l('EU Cookie Law Banner');
-        $this->description = $this->l('Show a banner to comply with EU cookie law');
+        $this->displayName = $this->l('Silktide Cookie Consent for Prestashop');
+        $this->description = $this->l('Add Silktide cookie consent on your Prestashop app');
 
-        $this->confirmUninstall = $this->l('Are you sure you want to uninstall this module?');
+        $this->confirmUninstall = $this->l('Are you sure you want to uninstall Silktide Cookie Consent for Prestashop?');
     }
 
     /**
@@ -36,7 +36,7 @@ class Eucookiecat extends Module
     public function install()
     {
         // Set configuration values
-        Configuration::updateValue('EUCOOKIECAT_LIVE_MODE', false);
+        Configuration::updateValue('SILKTIDECOOKIE_ACTIVE', false);
 
         // Call parent and register hooks
         if (!parent::isntall() ||
@@ -53,7 +53,7 @@ class Eucookiecat extends Module
     public function uninstall()
     {
         // Delete configuration values
-        Configuration::deleteByName('EUCOOKIECAT_LIVE_MODE');
+        Configuration::deleteByName('SILKTIDECOOKIE_ACTIVE');
 
         // Call parent
         if (!parent::uninstall()) {
