@@ -22,7 +22,7 @@ class SilktideCookieDisplayHeaderController
 			'message' => Configuration::get('SILKTIDECOOKIE_MESSAGE'),
 			'dismiss' => Configuration::get('SILKTIDECOOKIE_DISMISS'),
 			'learn_more' => Configuration::get('SILKTIDECOOKIE_LEARNMORE'),
-			// 'link' => Configuration::get('SILKTIDECOOKIE_LINK'),
+			'link_more' => Configuration::get('SILKTIDECOOKIE_LINK'),
 			'expiry_days' => (int)Configuration::get('SILKTIDECOOKIE_EXPIRYDAYS'),
 			'active' => Configuration::get('SILKTIDECOOKIE_ACTIVE'),
 			'theme' => Configuration::get('SILKTIDECOOKIE_THEME').'-'.Configuration::get('SILKTIDECOOKIE_POSITION')
